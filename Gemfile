@@ -7,6 +7,10 @@ gem 'rails', '3.2.11'
 group :development, :test do
 	gem 'sqlite3', '1.3.5'
 	gem 'rspec-rails', '2.11.0' #RSPEC is an alternate framework to write a thorough test suite
+	gem 'guard-rspec', '1.2.1' #Monitors changes in a file system for testing
+	gem 'guard-spork', '1.2.0' #Spork maintains a pool of processes to load the Ruby environment once for testing
+  	gem 'spork', '0.9.2'
+  	gem 'childprocess', '0.3.6' #made my own change since fork failed to achieve its start, child process launch error, downgraded from 0.3.8
 end
 
 # Gems used only for assets and not required
@@ -30,6 +34,11 @@ group :production do
 	gem 'pg', '0.12.2' #postgrSQL for deployment in Heroku
 end
 
+group :test do
+  gem 'capybara', '1.1.2'
+  gem 'rb-fsevent', '0.9.1', :require => false
+  gem 'growl', '1.0.3'
+end 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
